@@ -3,7 +3,7 @@ import platform
 import os
 
 def limpiar_pantalla():
-    if platform.name == 'Windows':
+    if platform.system == 'Windows':
         os.system('cls')
     else:
         os.system('clear')
