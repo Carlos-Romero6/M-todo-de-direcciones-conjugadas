@@ -2,26 +2,20 @@ import sympy as sp
 import platform
 import os
 
-def limpiar_pantalla():
-    if platform.system == 'Windows':
-        os.system('cls')
-    else:
-        os.system('clear')
-
 
 def solicitarDirecciones():
 #Número de direcciones y sus valores
-    n_direcciones = int(input("Introduce el número de direcciones: "))
+    n_direcciones = int(input('Introduce el número de direcciones: '))
     
     #Validación de parámetro ingresado
     while n_direcciones < 1:
-        n_direcciones = int(input("Por favor ingresa un valor válido (mayor a cero): "))
+        n_direcciones = int(input('Por favor ingresa un valor válido (mayor a cero): '))
     
     #Guardado de arreglo de direcciones especificados por el usuario
     S = []
     for i in range(n_direcciones):
-        x1 = float(input("Ingrese el x1 de la dirección: "))
-        x2 = float(input("Ingrese el x2 de la dirección: "))
+        x1 = float(input('Ingrese el x1 de la dirección: '))
+        x2 = float(input('Ingrese el x2 de la dirección: '))
         S.append(sp.Matrix([x1,x2]))
     return S
 
@@ -30,8 +24,8 @@ def solicitarDirecciones():
 def solicitarPuntoInicial():
 #Valores del punto inicial: 
     
-    x = float(input("Ingresa x del punto inicial: "))
-    y = float(input("Ingresa y del punto inicial: "))
+    x = float(input('Ingresa x del punto inicial: '))
+    y = float(input('Ingresa y del punto inicial: '))
     return [x,y]
 
 
@@ -40,7 +34,7 @@ def minimizar(S,p,i):
 #Cálculos según los parámetros recibidos
 
     #Inicialización de las variables y lambda (t)
-    t, x, y = sp.symbols("t x y")
+    t, x, y = sp.symbols('t x y')
     
     # Fórmula: (A,B) + TS
     vector_sust =  p[i]+ t*S[i]
@@ -56,7 +50,7 @@ def minimizar(S,p,i):
     
     #Si f'' < 0 no se puede resolver
     if segundaDerivada < 0:
-        print("No se puede resolver. No se está minimizando.")
+        print('No se puede resolver. No se está minimizando.')
         exit()
 
     #Despeje de lambda (t)
@@ -65,13 +59,13 @@ def minimizar(S,p,i):
 
 
 def mostrarEnPantalla(p):
-    limpiar_pantalla()
-    print("_________________________________________________________________________")
-    print(f"\nLos puntos conjugados han sido:\n")
+    os.system('cls')
+    print('_________________________________________________________________________')
+    print(f'\nLos puntos conjugados han sido:\n')
     for i in range(1,len(p)):
         sp.pprint(p[i])
-        print(" ")
-    print(f"\nPor tanto, el punto mínimo es:\n") 
+        print(' ')
+    print(f'\nPor tanto, el punto mínimo es:\n') 
     sp.pprint(p[-1])
     
     
@@ -97,5 +91,5 @@ def metodoDeDireccionesConjugadas():
 def main():
     metodoDeDireccionesConjugadas()
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
