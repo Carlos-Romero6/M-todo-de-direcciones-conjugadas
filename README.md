@@ -1,2 +1,5 @@
-# Metodo-de-direcciones-conjugadas
-Algoritmo del método de direcciones conjugadas usando Python y la librería Sympy.
+## Algorithm of the conjugate gradient method using Python and the Sympy library.
+
+**Installing the Sympy library (required):**
+
+```pip install sympy```
