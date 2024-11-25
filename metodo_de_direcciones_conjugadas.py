@@ -48,9 +48,10 @@ def minimizar(S,p,i):
     segundaDerivada = derivada.diff(t)
     
     #Si f'' < 0 no se puede resolver
+    segundaDerivada = -1
     if segundaDerivada < 0:
         print("No se puede resolver. No se está minimizando.")
-        exit 
+        exit()
 
     #Despeje de lambda (t)
     valor_t = sp.solve(derivada, t)
@@ -58,7 +59,7 @@ def minimizar(S,p,i):
 
 
 def mostrarEnPantalla(p):
-    os.system('cls')
+    os.system('clear')
     print("_________________________________________________________________________")
     print(f"\nLos puntos conjugados han sido:\n")
     for i in range(1,len(p)):
@@ -89,17 +90,6 @@ def metodoDeDireccionesConjugadas():
 
 def main():
     metodoDeDireccionesConjugadas()
-
-
-
-
-
-
-
-
-
-
-
 
 if __name__ == "__main__":
     main()
